@@ -48,4 +48,4 @@ const productos = new ProductManager();
 productos.addProduct("iphone 11 pro max", "celular", 500000, "#", 12, 200, 1);
 productos.addProduct("iphone 10", "celular", 420000, "#", 20, 500, 2);
 
-console.log(productos.getProductById(200));
+console.log(productos.getProductById(2));
