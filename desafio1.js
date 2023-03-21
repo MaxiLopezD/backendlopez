@@ -8,18 +8,8 @@ class ProductManager {
     }
 
     addProduct(title, description, price, thumbnail, code, stock) {
-        if (!title || !description || !price || !thumbnail || !code || !stock) {
-            console.log("Error: Todos los campos son requeridos");
-            return;
-        }
-
-        if (this.products.some((product) => product.code === code)) {
-            console.log("Error producto con el mismo codigo ya existe");
-            return;
-        }
-
         let id_producto = this.getProducts().length;
-        console.log(id_producto);
+
         let producto = {
             title: title,
             description: description,
@@ -28,17 +18,26 @@ class ProductManager {
             code: code,
             stock: stock,
             id: ++id_producto,
-        };
+            }
 
-        this.products.push(producto);
-        return this.products;
+        if (!title || !description || !price || !thumbnail || !code || !stock) {
+            return console.log("Error: Todos los campos son requeridos");
+        }
+        let codigo =this.products.find((prod)=> prod.code == producto.code)
+
+        if (codigo) {
+            return "Error producto con el mismo codigo ya existe";
+        }else {
+            this.products.push(producto)
+            return this.products
+        }
     }
 
-    getProductById(id_prod) {
-        let product = this.products.find((prod) => prod.id === id_prod);
-        console.log("clg product " + product);
-        if (product) {
-            return console.log(product);
+    getProductById(id_product) {
+        let producto = this.products.find((producto) => producto.id === id_product);
+        //console.log("clg product " + product);
+        if (producto) {
+            return producto;
         } else {
             return console.log("Product not found");
         }
@@ -46,9 +45,7 @@ class ProductManager {
 }
 
 const productos = new ProductManager();
-productos.addProduct("iphone 11 pro max", "", 500000, "", 1, 200);
-productos.addProduct("iphone 10", "", 420000, "", 2, 500);
+productos.addProduct("iphone 11 pro max", "celular", 500000, "#", 12, 200, 1);
+productos.addProduct("iphone 10", "celular", 420000, "#", 20, 500, 2);
 
-productos.getProductById(2);
-
-//console.log(productos.getProductById(1))
+console.log(productos.getProductById(200));
