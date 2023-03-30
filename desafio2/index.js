@@ -1,24 +1,23 @@
-import ProductManager from "./manager/ProductManager";
+import {ProductManager} from "./manager/ProductManager.js";
 
-const productos = new ProductManager();
+const product = new ProductManager();
 
 const env = async () =>{
 
-    let producto = {
-        title: title,
-        description: description,
-        price: price,
+    let product = {
+        title: celular,
+        description: sansung,
+        price: 50000,
         thumbnail: thumbnail,
-        code: code,
-        stock: stock,
+        code: asd123,
+        stock: 25,
         id: ++id,
         }
     
-
-    let result = await productos.addProduct(producto);
+    let result = await product.crearProducto(producto);
     console.log(result)
-    let produc = await productos.consultarProducto()
-    console.log(usuarios)
+    let productos = await product.consultarProducto()
+    console.log(productos)
 
 } 
 
