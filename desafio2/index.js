@@ -1,19 +1,23 @@
-import ManagerUsuarios from "./manager/managerUsuarios.js";
+import ProductManager from "./manager/ProductManager";
 
-const manager = new ManagerUsuarios();
+const productos = new ProductManager();
 
 const env = async () =>{
 
-    let user = {
-        nombre: "Juan Pablo",
-        apellido: "Bidabehere",
-        edad: "42",
-        curso: "Backend"
-    }
+    let producto = {
+        title: title,
+        description: description,
+        price: price,
+        thumbnail: thumbnail,
+        code: code,
+        stock: stock,
+        id: ++id,
+        }
+    
 
-    let result = await manager.crearUsuario(user);
+    let result = await productos.addProduct(producto);
     console.log(result)
-    let usuarios = await manager.consultarUsuarios()
+    let produc = await productos.consultarProducto()
     console.log(usuarios)
 
 } 
