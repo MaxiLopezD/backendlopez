@@ -13,7 +13,8 @@ export class ProductManager {
             return [];
         }
     }
-    crearProducto = async (producto) => {
+    
+    AddProducto = async (producto) => {
         const productos = await this.consultarProducto();
 
         if (this.Productos.length === 0) {

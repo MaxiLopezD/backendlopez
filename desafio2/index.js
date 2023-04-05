@@ -5,18 +5,18 @@ const product = new ProductManager();
 const env = async () =>{
 
     let product = {
-        title: celular,
-        description: sansung,
+        title: "celular",
+        description: "sansung",
         price: 50000,
-        thumbnail: thumbnail,
-        code: asd123,
+        thumbnail: "SIN IMAGEN",
+        code: "asd123",
         stock: 25,
         id: ++id,
         }
     
-    let result = await product.crearProducto(producto);
+    let result = await product.AddProducto(producto);
     console.log(result)
-    let productos = await product.consultarProducto()
+    let productos = await product.AddProducto()
     console.log(productos)
 
 } 
